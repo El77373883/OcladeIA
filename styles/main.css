@@ -184,19 +184,28 @@ footer input[type="text"] {
   cursor: pointer;
 }
 
+/* --- MENÚ HAMBURGUESA CORREGIDO --- */
 .sidebar {
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   width: 280px;
-  background: rgba(10, 10, 20, 0.9);
+  background: rgba(10, 10, 20, 0.95);
   backdrop-filter: blur(10px);
   z-index: 100;
   padding: 1rem;
   transition: transform 0.3s ease;
+  /* Estado visible por defecto */
+  transform: translateX(-100%);
 }
 
+/* Cuando NO tiene .hidden, se muestra */
+.sidebar:not(.hidden) {
+  transform: translateX(0);
+}
+
+/* Estado oculto */
 .sidebar.hidden {
   transform: translateX(-100%);
 }
@@ -212,5 +221,3 @@ footer input[type="text"] {
   cursor: pointer;
   color: var(--text-gray);
 }
-
-
