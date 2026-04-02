@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>OcladeAI</title>
   <link rel="stylesheet" href="styles/main.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,8 +54,7 @@
   <!-- Barra inferior -->
   <footer>
     <input type="file" id="file-upload" accept="image/*,.pdf,.txt" style="display:none;">
-    <button id="attach-file" class="action-btn">📎</button>
-    <input type="text" id="user-input" placeholder="Escribe tu mensaje...">
+="action-btn">    <input type="text" id="user-input" placeholder="Escribe tu mensaje..." autocomplete="off" inputmode="text">
     <button id="send-btn" class="send-btn">Enviar</button>
   </footer>
 
@@ -68,5 +67,16 @@
   <script src="js/models/think.js"></script>
   <script src="js/models/chat.js"></script>
   <script src="js/main.js"></script>
+
+  <script>
+    // Evitar desplazamiento al abrir teclado en iOS
+    document.addEventListener('focusin', (e) => {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+        }, 100);
+      }
+    });
+  </script>
 </body>
 </html>
