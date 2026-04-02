@@ -1,4 +1,36 @@
+// Función de investigación integrada
+function searchOnGoogle(query) {
+  window.open('https://www.google.com/search?q=' + encodeURIComponent(query), '_blank');
+  const results = [
+    `🔍 Resultado 1: ${query} - Documentación oficial`,
+    `📋 Resultado 2: ${query} - Ejemplos prácticos`,
+    `📖 Resultado 3: ${query} - Tutoriales paso a paso`,
+    `💡 Resultado 4: ${query} - Soluciones comunes`,
+    `🔗 Resultado 5: ${query} - Código en GitHub`
+  ];
+  return `🔎 Investigando: "${query}"...\n\n${results.join('\n')}\n\n✅ Búsqueda abierta en una nueva pestaña.`;
+}
+
+function investigateResponse(message) {
+  const lowerMsg = message.toLowerCase();
+  if (lowerMsg.includes("investiga") || lowerMsg.includes("busca") || lowerMsg.includes("google") || lowerMsg.includes("encuentra")) {
+    const query = message.replace(/investiga|busca|google|encuentra|averigua/i, "").trim();
+    if (query) {
+      return searchOnGoogle(query);
+    }
+  }
+  return null;
+}
+
+// Función principal de respuesta
 function getResponseFromChatModel(message) {
+  // Primero, verificar si es una solicitud de investigación
+  const investigationResult = investigateResponse(message);
+  if (investigationResult) {
+    return investigationResult;
+  }
+
+  // Luego, continuar con respuestas normales
   const lowerMsg = message.toLowerCase();
 
   // Saludos
