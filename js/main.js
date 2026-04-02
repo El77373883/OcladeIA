@@ -12,7 +12,7 @@ function updateTimeGreeting() {
   const hour = now.getHours();
   let greeting = '';
 
-  if (hour >= 6 && hour < 12) greeting = 'Buenos días';
+  if (hour >= 6 && hour < 1 'Buenos días';
   else if (hour >= 12 && hour < 18) greeting = 'Buenas tardes';
   else greeting = 'Buenas noches';
 
@@ -20,11 +20,23 @@ function updateTimeGreeting() {
 }
 
 function initEventListeners() {
+  // Menú hamburguesa
   document.getElementById('menu-toggle').addEventListener('click', toggleSidebar);
+
+  // Botón de nueva conversación
   document.getElementById('new-chat-btn').addEventListener('click', startNewChat);
+
+  // Selección de modelo
   document.querySelectorAll('.model-btn').forEach(btn => {
-    btn.addEventListener('click', () => setModel(btn.dataset.model));
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.model-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      currentModel = this.dataset.model;
+      localStorage.setItem('selectedModel', currentModel);
+    });
   });
+
+  // Enviar mensaje
   document.getElementById('send-btn').addEventListener('click', sendMessage);
   document.getElementById('user-input').addEventListener('keypress', e => {
     if (e.key === 'Enter') sendMessage();
@@ -32,12 +44,14 @@ function initEventListeners() {
 }
 
 function toggleSidebar() {
-  document.getElementById('sidebar').classList.toggle('hidden');
+  const sidebar = document.getElementById('sidebar');
+  sidebar.classList.toggle('hidden');
 }
 
 function setModel(model) {
   document.querySelectorAll('.model-btn').forEach(b => b.classList.remove('active'));
-  event.target.classList.add('active');
+  const activeBtn = document.querySelector(`[data-model="${model}"]`);
+  activeBtn.classList.add('active');
   currentModel = model;
   localStorage.setItem('selectedModel', model);
 }
@@ -48,8 +62,9 @@ function sendMessage() {
   if (!msg) return;
 
   addMessageToChat(msg, 'user');
+  saveCurrentChat(); // Guardar antes de enviar
 
-  // Simulación de respuesta
+  // Mostrar "pensando..."
   showThinking();
 
   setTimeout(() => {
@@ -57,6 +72,7 @@ function sendMessage() {
     const response = generateResponse(msg);
     addMessageToChat(response, 'bot');
     updateTokenCounter(msg.length + response.length);
+    saveCurrentChat(); // Guardar después de recibir respuesta
   }, 1500);
 
   input.value = '';
@@ -66,12 +82,12 @@ function addMessageToChat(text, sender) {
   const container = document.querySelector('.chat-container');
   const div = document.createElement('div');
   div.className = `message ${sender}`;
-  div.textContent container.appendChild(div);
+  div.textContent = text;
+  container.appendChild(div);
   container.scrollTop = container.scrollHeight;
 }
 
 function generateResponse(msg) {
-  // Lógica básica para elegir modelo
   if (currentModel === 'code') return getResponseFromCodeModel(msg);
   if (currentModel === 'think') return getResponseFromThinkModel(msg);
   return getResponseFromChatModel(msg);
@@ -97,7 +113,7 @@ function saveCurrentChat() {
     text: m.textContent,
     sender: m.classList.contains('user') ? 'user' : 'bot'
   }));
-  const chatId = Date.now().toString();
+  const chat().toString();
   const chatTitle = messages[0]?.text.slice(0, 30) || 'Nuevo chat';
   const chatData = {
     id: chatId,
@@ -142,5 +158,3 @@ function startNewChat() {
   updateTokenCounter(0);
   document.getElementById('sidebar').classList.add('hidden');
 }
-
-
