@@ -3,7 +3,7 @@
   --accent-blue: #00f3ff;
   --accent-purple: #7e57c2;
   --text-light: #ffffff;
-  --text-gray: rgba(255, 255, 255, 0.7);
+  --text-gray: rgba(255, 255, 255,0.7);
   --border-faint: rgba(0, 243, 255, 0.2);
 }
 
@@ -156,11 +156,11 @@ header {
   height: 60px;
   border-radius: 50%;
   background: radial-gradient(circle, var(--accent-blue), var(--accent-purple));
-  animation: pulse 1.5s infinite;
+  animation: pulse 15s infinite;
 }
 
 @keyframes pulse {
-  0% { transform: scale(1); opacity: 0.7; }
+  0% {: scale(1); opacity: 0.7; }
   50% { transform: scale(1.1); opacity: 1; }
   100% { transform: scale(1); opacity: 0.7; }
 }
@@ -174,6 +174,7 @@ footer {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  z-index: 10;
 }
 
 footer input[type="text"] {
@@ -236,25 +237,6 @@ footer input[type="text"] {
   color: var(--text-gray);
 }
 
-/* Menú desplegable de modelos */
-.model-menu {
-  position: absolute;
-  bottom: 60px;
-  left: 20px;
-  background: rgba(10, 10, 20, 0.95);
-  border-radius: 12px;
-  padding: 0.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  z-index: 1000;
-  min-width: 150px;
-}
-
-.model-menu.hidden {
-  display: none;
-}
-
 /* Responsive */
 @media screen and (max-width: 768px) {
   .greeting {
@@ -292,10 +274,10 @@ footer input[type="text"] {
     padding: 0.8rem;
   }
 
-  footer input[type="text"] {
-    padding: 0.6rem 1rem;
+  footer input[type="text"]    padding: 0.6rem 1rem;
   }
 
   .send-btn {
-    padding: 0.6rem 1  }
+    padding: 0.6rem 1.2rem;
+  }
 }
