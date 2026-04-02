@@ -14,7 +14,7 @@
   <div id="sidebar" class="sidebar hidden">
     <div class="logo">OcladeAI</div>
     <button id="new-chat-btn" class="btn">➕ Nueva conversación</button>
-    <div class="history-section">
+    <divhistory-section">
       <h3>Historial</h3>
       <ul id="chat-history"></ul>
     </div>
@@ -41,8 +41,8 @@
     <div id="chat-container" class="chat-container"></div>
   </main>
 
-  <!-- Selector de modelos -->
-  <div class="model-selector">
+  <!-- Selector de modelos (fijo arriba del input) -->
+  <div class="model-selector-fixed">
     <button data-model="code" class="model-btn active">Oclade Code 1.0</button>
     <button data-model="think" class="model-btn">Oclade Think 2.0</button>
     <button data-model="chat" class="model-btn">Oclade Chat Pro</button>
@@ -54,7 +54,8 @@
   <!-- Barra inferior -->
   <footer>
     <input type="file" id="file-upload" accept="image/*,.pdf,.txt" style="display:none;">
-="action-btn">    <input type="text" id="user-input" placeholder="Escribe tu mensaje..." autocomplete="off" inputmode="text">
+    <button id="attach-file" class="action-btn">📎</button>
+    <input type="text" id="user-input" placeholder="Escribe tu mensaje..." autocomplete="off" inputmode="text">
     <button id="send-btn" class="send-btn">Enviar</button>
   </footer>
 
