@@ -14,7 +14,7 @@
   <div id="sidebar" class="sidebar hidden">
     <div class="logo">OcladeAI</div>
     <button id="new-chat-btn" class="btn">➕ Nueva conversación</button>
-    <divhistory-section">
+    <div class="history-section">
       <h3>Historial</h3>
       <ul id="chat-history"></ul>
     </div>
@@ -23,7 +23,7 @@
   <!-- Contenido principal -->
   <div id="particles-js" class="background"></div>
   <header>
-    <button id="menu-toggle" class="menu-btn">☰</button>
+    <button id class="menu-btn">☰</button>
     <div class="logo-header">OcladeAI</div>
   </header>
 
@@ -41,23 +41,24 @@
     <div id="chat-container" class="chat-container"></div>
   </main>
 
-  <!-- Selector de modelos (fijo arriba del input) -->
-  <div class="model-selector-fixed">
-    <button data-model="code" class="model-btn active">Oclade Code 1.0</button>
-    <button data-model="think" class="model-btn">Oclade Think 2.0</button>
-    <button data-model="chat" class="model-btn">Oclade Chat Pro</button>
-  </div>
-
   <!-- Contador de tokens -->
   <div class="token-counter">0 / 4000 tokens</div>
 
   <!-- Barra inferior -->
   <footer>
     <input type="file" id="file-upload" accept="image/*,.pdf,.txt" style="display:none;">
-    <button id="attach-file" class="action-btn">📎</button>
+    <button id="model-menu-btn" class="action-btn">🤖</button>
+    <button id="attach-file" class="action-btn>
     <input type="text" id="user-input" placeholder="Escribe tu mensaje..." autocomplete="off" inputmode="text">
     <button id="send-btn" class="send-btn">Enviar</button>
   </footer>
+
+  <!-- Menú desplegable de modelos -->
+  <div id="model-menu" class="model-menu hidden">
+    <button data-model="code" class="model-btn">💻 Code 1.0</button>
+    <button data-model="think" class="model-btn">🧠 Think 2.0</button>
+    <button data-model="chat" class="model-btn">💬 Chat Pro</button>
+  </div>
 
   <script src="js/ui/particles.js"></script>
   <script src="js/core/memory.js"></script>
@@ -78,6 +79,21 @@
           window.scrollTo(0, 0);
         }, 100);
       }
+    });
+
+    // Menú de modelos
+    document.getElementById('model-menu-btn').addEventListener('click', () => {
+      const menu = document.getElementById('model-menu');
+      menu.classList.toggle('hidden');
+    });
+
+    document.querySelectorAll('#model-menu .model-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.getElementById('model-menu').classList.add('hidden');
+        // Actualiza el botón activo
+        document.querySelectorAll('.model-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
     });
   </script>
 </body>
