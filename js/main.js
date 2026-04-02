@@ -12,7 +12,7 @@ function updateTimeGreeting() {
   const hour = now.getHours();
   let greeting = '';
 
-  if (hour >= 6 && hour < 1 'Buenos días';
+  if (hour >= 6 && hour < 12) greeting = 'Buenos días';
   else if (hour >= 12 && hour < 18) greeting = 'Buenas tardes';
   else greeting = 'Buenas noches';
 
@@ -91,7 +91,10 @@ function sendMessage() {
   // Agregar mensaje del usuario
   addMessageToChat(msg, 'user');
 
-  // Mostrar "pens(() => {
+  // Mostrar "pensando..."
+  showThinking();
+
+  setTimeout(() => {
     hideThinking();
     const response = generateResponse(msg);
     addMessageToChat(response, 'bot');
