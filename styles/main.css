@@ -74,7 +74,10 @@ header {
 
 .greeting p {
   color: var(--text-gray);
-  font-size: 1.1rem {
+  font-size: 1.1rem;
+}
+
+.model-selector {
   display: flex;
   justify-content: center;
   gap: 1rem;
@@ -85,7 +88,8 @@ header {
 .model-btn {
   padding: 0.6rem 1.2rem;
   border-radius: 20px;
-  border: 1px solid var rgba(30, 30, 50, 0.4);
+  border: 1px solid var(--border-faint);
+  background: rgba(30, 30, 50, 0.4);
   color: var(--text-gray);
   cursor: pointer;
   transition: all 0.3s ease;
@@ -107,8 +111,8 @@ header {
 }
 
 .chat-container {
-  max-width: 100%;
-  margin: 2rem auto;
+  max-width: 600px;
+  margin: 0 auto;
   padding: 0 1rem;
   height: 50vh;
   overflow-y: auto;
@@ -116,19 +120,34 @@ header {
 }
 
 .message {
-  padding: 0.8rem;
-  margin: 0.5rem 0;
-  border-radius: 10px;
+  padding: 0.8rem 1.2rem;
+  margin: 0.6rem 0;
+  border-radius: 12px;
   background: rgba(30, 30, 40, 0.6);
   line-height: 1.5;
+  max-width: 85%;
+}
+
+.message.user {
+  margin-left: auto;
+  background: rgba(0, 120, 255, 0.15);
+  text-align: right;
+}
+
+.message.bot {
+  margin-right: auto;
+  background: rgba(30, 30, 40, 0.6);
+  text-align: left;
 }
 
 .thinking-container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   margin: 2rem auto;
   max-width: 600px;
+  height: 100px;
 }
 
 .brain-animation {
@@ -216,49 +235,8 @@ footer input[type="text"] {
   color: var(--text-gray);
 }
 
-/* Estilo para PC */
-@media screen and (min-width: 768px) {
-  body {
-    font-size: 16px;
-  }
-
-  .greeting h1 {
-    font-size: 2.5rem;
-  }
-
-  .greeting p {
-    font-size: 1.2rem;
-  }
-
-  .model-selector {
-    gap: 1.5rem;
-  }
-
-  .model-btn {
-    padding: 0.7rem 1.5rem;
-    font-size: 1rem;
-  }
-
-  .chat-container {
-    max-width: 700px;
-    height: 60vh;
-  }
-
-  footer {
-    padding: 1.5rem;
-  }
-
-  footer input[type="text"] {
-    padding: 1rem 1.5rem;
-  }
-
-  .send-btn {
-    padding: 1rem 2rem;
-  }
-}
-
-/* Estilo para iPhone */
-@media screen and (max-width: 767px) {
+/* Responsive */
+@media screen and (max-width: 768px) {
   .greeting {
     margin-top: 3rem;
   }
@@ -273,7 +251,6 @@ footer input[type="text"] {
 
   .model-selector {
     gap: 0.8rem;
-    margin-top: 1.5rem;
   }
 
   .model-btn {
@@ -282,12 +259,11 @@ footer input[type="text"] {
   }
 
   .chat-container {
-    padding: 0 0.5rem;
     height: 45vh;
   }
 
   .message {
-    padding: 0.6rem;
+    padding: 0.6rem 1rem;
     font-size: 0.9rem;
   }
 
@@ -301,10 +277,5 @@ footer input[type="text"] {
 
   .send-btn {
     padding: 0.6rem 1.2rem;
-    font-size: 0.9rem;
-  }
-
-  .token-counter {
-    font-size: 0.7rem;
   }
 }
