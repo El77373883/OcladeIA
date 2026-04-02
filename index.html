@@ -53,8 +53,11 @@
     <button id="send-btn" class="send-btn">Enviar</button>
   </footer>
 
-  <!-- Menú des -->
-  <div id="model-menu" class="model-menu hidden">
+  <!-- Menú desplegable de modelos -->
+  <div id="model-menu" class="model-menu hidden"
+       style="position: fixed; bottom: 70px; left: 20px; z-index: 1000;
+              background: rgba(10, 10, 20, 0.95); border-radius: 12px; padding: 0.5rem;
+              display: flex; flex-direction: column; gap: 0.5rem; min-width: 150px;">
     <button data-model="code" class="model-btn">💻 Code 1.0</button>
     <button data-model="think" class="model-btn">🧠 Think 2.0</button>
     <button data-model="chat" class="model-btn">💬 Chat Pro</button>
@@ -82,19 +85,22 @@
     });
 
     // Menú de modelos
-    document.getElementById('model-menu-btn').addEventListener('click', () => {
-      const menu = document.getElementById('model-menu');
-      menu.classList.toggle('hidden');
-    });
-
-    document.querySelectorAll('#model-menu .model-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        document.getElementById('model-menu').classList.add('hidden');
-        // Actualiza el botón activo
-        document.querySelectorAll('.model-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
+    const modelMenuBtn = document.getElementById('model-menu-btn');
+    const modelMenu = document.getElementById('model-menu');
+    if (modelMenuBtn && modelMenu) {
+      modelMenuBtn.addEventListener('click', () => {
+        modelMenu.classList.toggle('hidden');
       });
-    });
+
+      document.querySelectorAll('#model-menu .model-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          modelMenu.classList.add('hidden');
+          // Actualiza el botón activo
+          document.querySelectorAll('.model-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+        });
+      });
+    }
   </script>
 </body>
 </html>
