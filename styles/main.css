@@ -77,13 +77,13 @@ header {
   font-size: 1.1rem;
 }
 
-.model-selector {
+.model-selector-fixed {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin-top: 2rem;
-  flex-wrap: wrap;
-}
+  margin: 1.5rem auto 0;
+  padding-bottom: 0.5rem;
+  flex}
 
 .model-btn {
   padding: 0.6rem 1.2rem;
@@ -111,7 +111,7 @@ header {
 }
 
 .chat-container {
-  max-width: 600px;
+  max-width00px;
   margin: 0 auto;
   padding: 0 1rem;
   height: 50vh;
@@ -187,7 +187,7 @@ footer input[type="text"] {
 .send-btn {
   padding: 0.8rem 1.5rem;
   border: none;
-  border-radius: 24px;
+ -radius: 24px;
   background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
   color: white;
   font-weight: bold;
@@ -223,7 +223,7 @@ footer input[type="text"] {
   transform: translateX(-100%);
 }
 
-.history-section h3 {
+-section h3 {
   margin: 1rem 0;
   color: var(--accent-blue);
 }
@@ -249,7 +249,8 @@ footer input[type="text"] {
     font-size: 1rem;
   }
 
-  .model-selector {
+  .model-selector-fixed {
+    margin-top: 1rem;
     gap: 0.8rem;
   }
 
@@ -263,7 +264,7 @@ footer input[type="text"] {
   }
 
   .message {
-    padding: 0.6rem 1rem;
+    padding: .rem 1rem;
     font-size: 0.9rem;
   }
 
