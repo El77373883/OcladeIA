@@ -1,1 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OcladeAI</title>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Menú lateral -->
+  <div id="sidebar" class="sidebar hidden">
+    <div class="logo">OcladeAI</div>
+    <button id="new-chat-btn" class="btn">➕ Nueva conversación</button>
+    <div class="history-section">
+      <h3>Historial</h3>
+      <ul id="chat-history"></ul>
+    </div>
+  </div>
+
+  <!-- Contenido principal -->
+  <div id="particles-js" class="background"></div>
+  <header>
+    <button id="menu-toggle" class="menu-btn">☰</button>
+    <div class="logo-header">OcladeAI</div>
+  </header>
+
+  <main>
+    <div class="greeting">
+      <h1 id="time-greeting">Buenas noches</h1>
+      <p>¿En qué te puedo ayudar hoy?</p>
+    </div>
+
+    <div id="thinking-container" class="thinking-container hidden">
+      <div class="brain-animation"></div>
+      <p>🧠 Pensando...</p>
+    </div>
+
+    <div id="chat-container" class="chat-container"></div>
+  </main>
+
+  <!-- Selector de modelos -->
+  <div class="model-selector">
+    <button data-model="code" class="model-btn active">Oclade Code 1.0</button>
+    <button data-model="think" class="model-btn">Oclade Think 2.0</button>
+    <button data-model="chat" class="model-btn">Oclade Chat Pro</button>
+  </div>
+
+  <!-- Contador de tokens -->
+  <div class="token-counter">0 / 4000 tokens</div>
+
+  <!-- Barra inferior -->
+  <footer>
+    <input type="file" id="file-upload" accept="image/*,.pdf,.txt" style="display:none;">
+    <button id="attach-file" class="action-btn">📎</button>
+    <input type="text" id="user-input" placeholder="Escribe tu mensaje...">
+    <button id="send-btn" class="send-btn">Enviar</button>
+  </footer>
+
+  <script src="js/ui/particles.js"></script>
+  <script src="js/core/memory.js"></script>
+  <script src="js/core/tokenizer.js"></script>
+  <script src="js/ui/chat.js"></script>
+  <script src="js/ui/animations.js"></script>
+  <script src="js/models/code.js"></script>
+  <script src="js/models/think.js"></script>
+  <script src="js/models/chat.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
+
 
