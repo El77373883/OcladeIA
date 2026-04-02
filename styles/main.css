@@ -74,10 +74,7 @@ header {
 
 .greeting p {
   color: var(--text-gray);
-  font-size: 1.1rem;
-}
-
-.model-selector {
+  font-size: 1.1rem {
   display: flex;
   justify-content: center;
   gap: 1rem;
@@ -88,8 +85,7 @@ header {
 .model-btn {
   padding: 0.6rem 1.2rem;
   border-radius: 20px;
-  border: 1px solid var(--border-faint);
-  background: rgba(30, 30, 50, 0.4);
+  border: 1px solid var rgba(30, 30, 50, 0.4);
   color: var(--text-gray);
   cursor: pointer;
   transition: all 0.3s ease;
@@ -111,9 +107,12 @@ header {
 }
 
 .chat-container {
-  max-width: 600px;
+  max-width: 100%;
   margin: 2rem auto;
   padding: 0 1rem;
+  height: 50vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
 }
 
 .message {
@@ -184,7 +183,6 @@ footer input[type="text"] {
   cursor: pointer;
 }
 
-/* --- MENÚ HAMBURGUESA CORREGIDO --- */
 .sidebar {
   position: fixed;
   top: 0;
@@ -196,16 +194,12 @@ footer input[type="text"] {
   z-index: 100;
   padding: 1rem;
   transition: transform 0.3s ease;
-  /* Estado visible por defecto */
-  transform: translateX(-100%);
 }
 
-/* Cuando NO tiene .hidden, se muestra */
 .sidebar:not(.hidden) {
   transform: translateX(0);
 }
 
-/* Estado oculto */
 .sidebar.hidden {
   transform: translateX(-100%);
 }
@@ -220,4 +214,97 @@ footer input[type="text"] {
   border-bottom: 1px solid var(--border-faint);
   cursor: pointer;
   color: var(--text-gray);
+}
+
+/* Estilo para PC */
+@media screen and (min-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  .greeting h1 {
+    font-size: 2.5rem;
+  }
+
+  .greeting p {
+    font-size: 1.2rem;
+  }
+
+  .model-selector {
+    gap: 1.5rem;
+  }
+
+  .model-btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .chat-container {
+    max-width: 700px;
+    height: 60vh;
+  }
+
+  footer {
+    padding: 1.5rem;
+  }
+
+  footer input[type="text"] {
+    padding: 1rem 1.5rem;
+  }
+
+  .send-btn {
+    padding: 1rem 2rem;
+  }
+}
+
+/* Estilo para iPhone */
+@media screen and (max-width: 767px) {
+  .greeting {
+    margin-top: 3rem;
+  }
+
+  .greeting h1 {
+    font-size: 1.8rem;
+  }
+
+  .greeting p {
+    font-size: 1rem;
+  }
+
+  .model-selector {
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+  }
+
+  .model-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .chat-container {
+    padding: 0 0.5rem;
+    height: 45vh;
+  }
+
+  .message {
+    padding: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  footer {
+    padding: 0.8rem;
+  }
+
+  footer input[type="text"] {
+    padding: 0.6rem 1rem;
+  }
+
+  .send-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .token-counter {
+    font-size: 0.7rem;
+  }
 }
