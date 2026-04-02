@@ -12,7 +12,7 @@ function updateTimeGreeting() {
   const hour = now.getHours();
   let greeting = '';
 
-  if (hour >= 6 && hour < 12) greeting = 'Buenos días';
+  if (hour >= 6 && hour < 1 'Buenos días';
   else if (hour >= 12 && hour < 18) greeting = 'Buenas tardes';
   else greeting = 'Buenas noches';
 
@@ -54,6 +54,26 @@ function initEventListeners() {
       if (e.key === 'Enter') sendMessage();
     });
   }
+
+  // Menú desplegable de modelos
+  const modelMenuBtn = document.getElementById('model-menu-btn');
+  const modelMenu = document.getElementById('model-menu');
+  if (modelMenuBtn && modelMenu) {
+    modelMenuBtn.addEventListener('click', () => {
+      modelMenu.classList.toggle('hidden');
+    });
+
+    document.querySelectorAll('#model-menu .model-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        modelMenu.classList.add('hidden');
+        // Actualiza el botón activo
+        document.querySelectorAll('.model-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentModel = btn.dataset.model;
+        localStorage.setItem('selectedModel', currentModel);
+      });
+    });
+  }
 }
 
 function startNewChat() {
@@ -71,10 +91,7 @@ function sendMessage() {
   // Agregar mensaje del usuario
   addMessageToChat(msg, 'user');
 
-  // Mostrar "pensando..."
-  showThinking();
-
-  setTimeout(() => {
+  // Mostrar "pens(() => {
     hideThinking();
     const response = generateResponse(msg);
     addMessageToChat(response, 'bot');
