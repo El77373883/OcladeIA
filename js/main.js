@@ -1,3 +1,4 @@
+///main.js
 let currentModel = 'chat';
 let tokenCount = 0;
 
@@ -12,21 +13,30 @@ function updateTimeGreeting() {
   const hour = now.getHours();
   let greeting = '';
 
-  if (hour >= 6 && hour < 1 'Buenos días';
-  else if (hour >= 12 && hour < 18) greeting = 'Buenas tardes';
+  if (hour >= 6 && hour < 12) greeting = 'Buenos días';
+  else if (hour12 && hour < 18) greeting = 'Buenas tardes';
   else greeting = 'Buenas noches';
 
-  document.getElementById('time-greeting').textContent = greeting;
+  document.getElementById('time-g').textContent = greeting;
 }
 
 function initEventListeners() {
   // Menú hamburguesa
-  document.getElementById('menu-toggle').addEventListener('click', toggleSidebar);
+  const menuToggle = document.getElementById('menu-toggle');
+  const sidebar = document.getElementById('sidebar');
+  if (menuToggle && sidebar) {
+    menuToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('hidden');
+    });
+  }
 
-  // Botón de nueva conversación
-  document.getElementById('new-chat-btn').addEventListener('click', startNewChat);
+  // Nueva conversación
+ const newChatBtn = document.getElementById('new-chat-btn');
+  if (newChatBtn) {
+    newChatBtn.addEventListener('click', startNewChat);
+  }
 
-  // Selección de modelo
+  // Modelos
   document.querySelectorAll('.model-btn').forEach(btn => {
     btn.addEventListener('click', function() {
       document.querySelectorAll('.model-btn').forEach(b => b.classList.remove('active'));
@@ -36,24 +46,22 @@ function initEventListeners() {
     });
   });
 
-  // Enviar mensaje
-  document.getElementById('send-btn').addEventListener('click', sendMessage);
-  document.getElementById('user-input').addEventListener('keypress', e => {
-    if (e.key === 'Enter') sendMessage();
-  });
+  // Enviar
+  const sendBtn = document.getElementById('send-btn');
+  const userInput = document.getElementById('user-input');
+  if (sendBtn && userInput) {
+    sendBtn.addEventListener('click', sendMessage);
+    userInput.addEventListener('keypress', e => {
+      if (e.key === 'Enter') sendMessage();
+    });
+  }
 }
 
-function toggleSidebar() {
-  const sidebar = document.getElementById('sidebar');
-  sidebar.classList.toggle('hidden');
-}
-
-function setModel(model) {
-  document.querySelectorAll('.model-btn').forEach(b => b.classList.remove('active'));
-  const activeBtn = document.querySelector(`[data-model="${model}"]`);
-  activeBtn.classList.add('active');
-  currentModel = model;
-  localStorage.setItem('selectedModel', model);
+function startNewChat() {
+  document.querySelector('.chat-container').innerHTML = '';
+  tokenCount = 0;
+  document.querySelector('.token-counter').textContent = '0 / 4000 tokens';
+  document.getElementById('sidebar').classList.add('hidden');
 }
 
 function sendMessage() {
@@ -62,17 +70,16 @@ function sendMessage() {
   if (!msg) return;
 
   addMessageToChat(msg, 'user');
-  saveCurrentChat(); // Guardar antes de enviar
 
   // Mostrar "pensando..."
-  showThinking();
+  const thinking = document.getElementById('thinking-container');
+  if (thinking) thinking.classList.remove('hidden');
 
   setTimeout(() => {
-    hideThinking();
+    if (thinking) thinking.classList.add('hidden');
     const response = generateResponse(msg);
     addMessageToChat(response, 'bot');
     updateTokenCounter(msg.length + response.length);
-    saveCurrentChat(); // Guardar después de recibir respuesta
   }, 1500);
 
   input.value = '';
@@ -80,6 +87,7 @@ function sendMessage() {
 
 function addMessageToChat(text, sender) {
   const container = document.querySelector('.chat-container');
+  if (!container) return;
   const div = document.createElement('div');
   div.className = `message ${sender}`;
   div.textContent = text;
@@ -93,44 +101,17 @@ function generateResponse(msg) {
   return getResponseFromChatModel(msg);
 }
 
-function showThinking() {
-  document.getElementById('thinking-container').classList.remove('hidden');
-}
-
-function hideThinking() {
-  document.getElementById('thinking-container').classList.add('hidden');
-}
-
 function updateTokenCounter(length) {
   tokenCount += Math.floor(length / 4);
   if (tokenCount > 4000) tokenCount = 4000;
   document.querySelector('.token-counter').textContent = `${tokenCount} / 4000 tokens`;
 }
 
-// Historial
-function saveCurrentChat() {
-  const messages = Array.from(document.querySelectorAll('.message')).map(m => ({
-    text: m.textContent,
-    sender: m.classList.contains('user') ? 'user' : 'bot'
-  }));
-  const chat().toString();
-  const chatTitle = messages[0]?.text.slice(0, 30) || 'Nuevo chat';
-  const chatData = {
-    id: chatId,
-    title: chatTitle,
-    timestamp: new Date(),
-    messages,
-    model: currentModel
-  };
-  let history = JSON.parse(localStorage.getItem('chatHistory')) || [];
-  history.unshift(chatData);
-  localStorage.setItem('chatHistory', JSON.stringify(history));
-  renderChatHistory();
-}
-
+// Historial (solo si existen los elementos)
 function loadChatHistory() {
-  const history = JSON.parse(localStorage.getItem('chatHistory')) || [];
   const ul = document.getElementById('chat-history');
+  if (!ul) return;
+  const history = JSON.parse(localStorage.getItem('chatHistory')) || [];
   ul.innerHTML = '';
   history.forEach(chat => {
     const li = document.createElement('li');
@@ -145,16 +126,20 @@ function loadChatById(id) {
   const history = JSON.parse(localStorage.getItem('chatHistory')) || [];
   const chat = history.find(c => c.id === id);
   if (chat) {
-    document.querySelector('.chat-container').innerHTML = '';
-    chat.messages.forEach(msg => addMessageToChat(msg.text, msg.sender));
-    setModel(chat.model);
-    document.getElementById('sidebar').classList.add('hidden');
+    const container = document('.chat-container');
+    if (container) {
+      container.innerHTML = '';
+      chat.messages.forEach(msg => addMessageToChat(msg.text, msg.sender));
+      setModel(chat.model);
+      document.getElementById('sidebar').classList.add('hidden');
+    }
   }
 }
 
-function startNewChat() {
-  document.querySelector('.chat-container').innerHTML = '';
-  tokenCount = 0;
-  updateTokenCounter(0);
-  document.getElementById('sidebar').classList.add('hidden');
+function setModel(model) {
+  document.querySelectorAll('.model-btn').forEach(b => b.classList.remove('active'));
+  const btn = document.querySelector(`[data-model="${model}"]`);
+  if (btn) btn.classList.add('active');
+  currentModel = model;
+  localStorage.setItem('selectedModel', model);
 }
