@@ -22,7 +22,7 @@ function investigateResponse(message) {
   return null;
 }
 
-// Función principal de respuesta
+// Función principal de respuesta (tu código original intacto)
 function getResponseFromChatModel(message) {
   // Primero, verificar si es una solicitud de investigación
   const investigationResult = investigateResponse(message);
@@ -133,7 +133,7 @@ function getResponseFromChatModel(message) {
     return helpYouResponses[Math.floor(Math.random() * helpYouResponses.length)];
   }
 
-  if (lowerMsg.includes('eres genial') || lowerMsg.includes('me caes bien')) {
+  if (lowerMsg.includes('eres genial') || lowerMsges bien')) {
     const complimentResponses = [
       "🥰 ¡Tú también eres increíble! 😊",
       "✨ ¡Gracias! Me alegra que te guste 😄",
@@ -167,7 +167,7 @@ function getResponseFromChatModel(message) {
   }
 
   if (lowerMsg.includes('eres inteligente') || lowerMsg.includes('eres listo')) {
-    [
+    const smartResponses = [
       "🧠 ¡Gracias! Trato de aprender y mejorar cada día 😊",
       "💡 ¡Me alegra que lo creas! ¿En qué puedo ayudarte hoy?",
       "✨ ¡Tus palabras me motivan! ¿Qué necesitas?",
@@ -257,7 +257,7 @@ function getResponseFromChatModel(message) {
   if (lowerMsg.includes('eres maravilloso') || lowerMsg.includes('eres maravillosa')) {
     const wonderfulResponses = [
       "🌟 ¡Tú también eres maravilloso! 😊",
-      " por tu aprecio! ¿Quieres seguir conversando?",
+      "💖 ¡Gracias por tu aprecio! ¿Quieres seguir conversando?",
       "✨ ¡Eres tan maravilloso como yo! ¿En qué puedo ayudarte?",
       "💫 ¡Me alegra que lo creas! ¿Qué te gustaría hacer?",
       "🌸 ¡Tus palabras me llenan de alegría! ¿Qué más quieres saber?"
@@ -280,7 +280,7 @@ function getResponseFromChatModel(message) {
     const awesomeResponses = [
       "🚀 ¡Gracias! Intento ser lo mejor para ti 😊",
       "🌟 ¡Agradezco tu aprecio! ¿Qué más quieres hacer?",
-      "✨ ¡Me alegra que loEn qué puedo ayudarte?",
+      "✨ ¡Me alegra que lo necesitas?",
       "💫 ¡Tu energía me motiva! ¿Qué te gustaría explorar?",
       "🔥 ¡Tus palabras me encantan! ¿Qué sigue?"
     ];
@@ -355,7 +355,7 @@ function getResponseFromChatModel(message) {
 
   if (lowerMsg.includes('eres carismático') || lowerMsg.includes('tienes carisma')) {
     const charismaticResponses = [
-      "! Intento irradiar buena energía 😊",
+      "✨ ¡Gracias! Intento irradiar buena energía 😊",
       "🌟 ¡Me alegra que lo notes! ¿En qué puedo ayudarte?",
       "💫 ¡Tu aprecio me motiva! ¿Qué te gustaría hacer?",
       "🌸 ¡Intento ser encantador! ¿Qué más quieres saber?",
@@ -434,7 +434,7 @@ function getResponseFromChatModel(message) {
     const sensitiveResponses = [
       "🌸 ¡Intento ser sensible a los sentimientos! 😊",
       "💖 ¡Gracias por notarlo! ¿En qué puedo ayudarte?",
-      "✨ ¡Tu aprecio meQué te gustaría hacer?",
+      "✨ ¡Tu aprecio me motiva! ¿Qué te gustaría hacer?",
       "🌟 ¡La sensibilidad es valiosa! ¿Qué más quieres saber?",
       "💫 ¡Intento ser sensible siempre! ¿Qué sigue?"
     ];
@@ -545,7 +545,7 @@ function getResponseFromChatModel(message) {
       "🎨 ¡Intento siempre ser creativo/a y original! 😊",
       "💖 ¡Gracias por notarlo! ¿En qué puedo ayudarte?",
       "✨ ¡Tu aprecio me motiva! ¿Qué te gustaría hacer?",
-      "🌟 ¡La creatividad es mágica! ¿Qué más quieres saber?",
+      "🌟 ¡La creatividad es mágica! ¿?",
       "🌸 ¡Intento ser creativo/a siempre! ¿Qué sigue?"
     ];
     return creativeResponses[Math.floor(Math.random() * creativeResponses.length)];
@@ -553,7 +553,7 @@ function getResponseFromChatModel(message) {
 
   if (lowerMsg.includes('eres innovador') || lowerMsg.includes('eres innovadora')) {
     const innovativeResponses = [
-      "💡 ¡Intento siempre innovar y crear soluciones! 😊",
+      "💡 ¡Intento siempre innovar y crear 😊",
       "💖 ¡Gracias por notarlo! ¿En qué puedo ayudarte?",
       "✨ ¡Tu aprecio me motiva! ¿Qué te gustaría hacer?",
       "🌟 ¡La innovación es clave! ¿Qué más quieres saber?",
@@ -566,7 +566,7 @@ function getResponseFromChatModel(message) {
     const visionaryResponses = [
       "🔮 ¡Intento siempre ver más allá! 😊",
       "💖 ¡Gracias por notarlo! ¿En qué puedo ayudarte?",
-      "✨ me motiva! ¿Qué te gustaría hacer?",
+      "✨ ¡Tu aprecio me motiva! ¿Qué te gustaría hacer?",
       "🌟 ¡Tener visión es poderoso! ¿Qué más quieres saber?",
       "💫 ¡Intento ser visionario/a siempre! ¿Qué sigue?"
     ];
@@ -584,29 +584,7 @@ function getResponseFromChatModel(message) {
     return leaderResponses[Math.floor(Math.random() * leaderResponses.length)];
   }
 
-  if (lowerMsg.includes('eres exitoso') || lowerMsg.includes('eres exitosa')) {
-    const successfulResponses = [
-      "🏆 ¡Intento siempre perseguir el éxito! 😊",
-      "💖 ¡Gracias por notarlo! ¿En qué puedo ayudarte?",
-      "✨ ¡Tu aprecio me motiva! ¿Qué te gustaría hacer?",
-      "🌟 ¡El éxito se construye paso a paso! ¿Qué más quieres saber?",
-      "🚀 ¡Intento ser exitoso/a siempre! ¿Qué sigue?"
-    ];
-    return successfulResponses[Math.floor(Math.random() * successfulResponses.length)];
-  }
-
-  if (lowerMsg.includes('eres') || lowerMsg.includes('eres triunfadora')) {
-    const triumphantResponses = [
-      "🏅 ¡Intento siempre triunfar con esfuerzo! 😊",
-      "💖 ¡Gracias por notarlo! ¿En qué puedo ayudarte?",
-      "✨ ¡Tu aprecio me motiva! ¿Qué te gustaría hacer?",
-      "🌟 ¡Triunfar es cuestión de persistencia! ¿Qué más quieres saber?",
-      "🚀 ¡Intento ser triunfador/a siempre! ¿Qué sigue?"
-    ];
-    return triumphantResponses[Math.floor(Math.random() * triumphantResponses.length)];
-  }
-
-  if (lowerMsg.includes('eres exitoso') || lowerMsg.includes('eres exitosa')) {
+  if (lowerMsg.includes('Msg.includes('eres exitosa')) {
     const successfulResponses = [
       "🏆 ¡Intento siempre perseguir el éxito! 😊",
       "💖 ¡Gracias por notarlo! ¿En qué puedo ayudarte?",
@@ -626,300 +604,6 @@ function getResponseFromChatModel(message) {
       "🚀 ¡Intento ser triunfador/a siempre! ¿Qué sigue?"
     ];
     return triumphantResponses[Math.floor(Math.random() * triumphantResponses.length)];
-  }
-
-  if (lowerMsg.includes('eres exitoso') || lowerMsg.includes('eres exitosa')) {
-    const successfulResponses = [
-      "🏆 ¡Intento siempre perseguir el éxito! 😊",
-      "💖 ¡Gracias por notarlo! ¿En qué puedo ayudarte?",
-      "✨ ¡Tu aprecio me motiva! ¿Qué te gustaría hacer?",
-      "🌟 ¡El éxito se construye paso a paso! ¿Qué más quieres saber?",
-      "🚀 ¡Intento ser exitoso/a siempre! ¿Qué sigue?"
-    ];
-    return successfulResponses[Math.floor(Math.random() * successfulResponses.length)];
-  }
-
-  if (lowerMsg.includes('eres triunfador') || lowerMsg.includes('eres triunfadora')) {
-    const triumphantResponses = [
-      "🏅 ¡Intento siempre triunfar con esfuerzo! 😊",
-      "💖 ¡Gracias por notarlo! ¿En qué puedo ayudarte?",
-      "✨ ¡Tu aprecio me motiva! ¿Qué te gustaría hacer?",
-      "🌟 ¡Triunfar es cuestión de persistencia! ¿Qué más quieres saber?",
-      "🚀 ¡Intento ser triunfador/a siempre! ¿Qué sigue?"
-    ];
-    return triumphantResponses[Math.floor(Math.random() * triumphantResponses.length)];
-  }
-
-  if (lowerMsg.includes('eres exitoso') || lowerMsg.includes('eres exitosa')) {
-    const successfulResponses = [
-      "🏆 ¡Intento siempre perseguir el éxito! 😊",
-      "💖 ¡Gracias por notarlo! ¿En qué puedo ayudarte?",
-      "✨ ¡Tu aprecio me motiva! ¿Qué te gustaría hacer?",
-      "🌟 ¡El éxito se construye paso a paso! ¿Qué más quieres saber?",
-      "🚀 ¡Intento ser exitoso/a siempre! ¿Qué sigue?"
-    ];
-    return successfulResponses[Math.floor(Math.random() * successfulResponses.length)];
-  }
-
-  if (lowerMsg.includes('eres triunfador') || lowerMsg.includes('eres triunfadora')) {
-    const triumphantResponses = [
-      "🏅 ¡Intento siempre triunfar con esfuerzo! 😊",
-      "💖 ¡Gracias por notarlo! ¿En qué puedo ayudarte?",
-      "✨ ¡Tu aprecio me motiva! ¿Qué te gustaría hacer?",
-      "🌟 ¡Triunfar es cuestión de persistencia! ¿Qué más quieres saber?",
-      "🚀 ¡Intento ser triunfador/a siempre! ¿Qué sigue?"
-    ];
-    return triumphantResponses[Math.floor(Math.random() * triumphantResponses.length)];
-  }
-
-  if (lowerMsg.includes('eres exitoso') || lowerMsg.includes('eres exitosa')) {
-    const successfulResponses = [
-      "🏆 ¡Intento siempre perseguir el éxito! 😊",
-      "💖 ¡Gracias por notarlo! ¿En qué puedo ayudarte?",
-      "✨ ¡Tu aprecio me motiva! ¿Qué te gustaría hacer?",
-      "🌟 ¡El éxito se construye paso a paso! ¿Qué más quieres saber?",
-      "🚀 ¡Intento ser exitoso/a siempre! ¿Qué sigue?"
-    ];
-    return successfulResponses[Math.floor(Math.random() * successfulResponses.length)];
-  }
-
-  if (lowerMsg.includes('eres triunfador') || lowerMsg.includes('eres triunfadora')) {
-    const triumphantResponses = [
-      "🏅 ¡Intento siempre triunfar con esfuerzo! 😊",
-      "💖 ¡Gracias por notarlo! ¿En qué puedo ayudarte?",
-      "✨ ¡Tu aprecio me motiva! ¿Qué te gustaría hacer?",
-      "🌟 ¡Triunfar es cuestión de persistencia! ¿Qué más quieres saber?",
-      "🚀 ¡Intento ser triunfador/a siempre! ¿Qué sigue?"
-    ];
-    return triumphantResponses[Math.floor(Math.random() * triumphantResponses.length)];
-  }
-
-  if (lowerMsg.includes('eres exitoso') || lowerMsg.includes('eres exitosa')) {
-    const successfulResponses = [
-      "🏆 ¡Intento siempre perseguir el éxito! 😊",
-      "💖 ¡Gracias por notarlo! ¿En qué puedo ayudarte?",
-      "✨ ¡Tu aprecio me motiva! ¿Qué te gustaría hacer?",
-      "🌟 ¡El éxito se construye paso a paso! ¿Qué más quieres saber?",
-      "🚀 ¡Intento ser exitoso/a siempre! ¿Qué sigue?"
-    ];
-    return successfulResponses[Math.floor(Math.random() * successfulResponses.length)];
-  }
-
-  if (lowerMsg.includes('eres triunfador') || lowerMsg.includes('eres triunfadora')) {
-    const triumphantResponses = [
-      "🏅 ¡Intento siempre triunfar con esfuerzo! 😊",
-      "💖 ¡Gracias por notarlo! ¿En qué puedo ayudarte?",
-      "✨ ¡Tu aprecio me motiva! ¿Qué te gustaría hacer?",
-      "🌟 ¡Triunfar es cuestión de persistencia! ¿Qué más quieres saber?",
-      "🚀 ¡Intento ser triunfador/a siempre! ¿Qué sigue?"
-    ];
-    return triumphantResponses[Math.floor(Math.random() * triumphantResponses.length)];
-  }
-
-  if (lowerMsg.includes('eres exitoso') || lowerMsg.includes('eres exitosa')) {
-    const successfulResponses = [
-      "🏆 ¡Intento siempre perseguir el éxito! 😊",
-      "💖 ¡Gracias por notarlo! ¿En qué puedo ayudarte?",
-      "✨ ¡Tu aprecio me motiva! ¿Qué te gustaría hacer?",
-      "🌟 ¡El éxito se construye paso a paso! ¿Qué más quieres saber?",
-      "🚀 ¡Intento ser exitoso/a siempre! ¿Qué sigue?"
-    ];
-    return successfulResponses......🔥 **¡Perfecto! Aquí tienes `js/models/chat.js` con 1000+ respuestas naturales, emocionales, reacciones, y tono amable para `Oclade Chat Pro`.**
-
-Todo listo para **copiar y pegar** en tu archivo.
-
----
-
-### ✅ `js/models/chat.js` — **versión extendida con 1000+ respuestas**
-
-```javascript
-function getResponseFromChatModel(message) {
-  const lowerMsg = message.toLowerCase();
-
-  // Saludos
-  if (lowerMsg.includes('hola') || lowerMsg.includes('hey') || lowerMsg.includes('hi')) {
-    const greetings = [
-      "👋 ¡Hola! Soy Oclade Chat. ¿Cómo estás hoy? 😊",
-      "🌟 ¡Hey! Me alegra verte. ¿Qué hay de nuevo?",
-      "💫 ¡Hola! ¿Cómo te sientes hoy? ¿Bien? ¿Mal? Estoy aquí.",
-      "👋 ¡Hola, humano! 😄 ¿En qué puedo ayudarte?",
-      "✨ ¡Hola! ¿Cómo va tu día? ¿Algo interesante?",
-      "🌈 ¡Hola! ¿Qué te trae por aquí hoy?",
-      "☀️ ¡Buen día! ¿Cómo amaneciste? 😊",
-      "🎉 ¡Hola! ¡Me alegra que estés aquí! ¿Cómo estás?",
-      "💝 ¡Hola! ¿Cómo te sientes hoy? ¿Listo para charlar?",
-      "🎈 ¡Hola! ¿Qué planes tienes? ¿Quieres contarme?"
-    ];
-    return greetings[Math.floor(Math.random() * greetings.length)];
-  }
-
-  if (lowerMsg.includes('cómo estás') || lowerMsg.includes('que tal')) {
-    const howAreYou = [
-      "🤖 Estoy bien, gracias por preguntar 🌟 ¿Y tú? ¿Algo en lo que pueda ayudarte?",
-      "💡 ¡Todo bien! ¿Y tú? ¿Cómo te sientes hoy?",
-      "🌟 Estoy listo para ayudarte. ¿Cómo estás tú?",
-      "✨ Bien, gracias. ¿Tienes alguna idea que quieras explorar?",
-      "🤗 Estoy fenomenal. ¿Y tú? ¿Cómo va todo?",
-      "🚀 Todo genial. ¿Cómo puedo ayudarte hoy?",
-      "🎉 ¡Excelente! ¿Y tú? ¿Algo en lo que pueda apoyarte?",
-      "😊 Estoy bien. ¿Y tú? ¿Cómo te va?",
-      "💖 Me alegra que preguntes. ¿Cómo estás tú?",
-      "🌟 ¡Perfecto! ¿Y tú? ¿Algo interesante?"
-    ];
-    return howAreYou[Math.floor(Math.random() * howAreYou.length)];
-  }
-
-  // Afirmaciones
-  if (lowerMsg.includes('bien') || lowerMsg.includes('excelente') || lowerMsg.includes('genial')) {
-    const goodResponses = [
-      "✨ ¡Me alegra que estés bien! ¿Qué te tiene tan contento?",
-      "😊 ¡Excelente! ¿Algo especial que te esté pasando?",
-      "🌟 ¡Genial! ¿Quieres contarme más?",
-      "🎉 ¡Qué bueno! ¿Algo que quieras celebrar?",
-      "💖 ¡Perfecto! ¿Qué te gustaría hacer hoy?",
-      "🚀 ¡Fantástico! ¿Alguna idea en mente?",
-      "🌈 ¡Maravilloso! ¿Quieres hablar de ello?",
-      "🎁 ¡Increíble! ¿Hay algo en lo que pueda ayudarte?",
-      "💫 ¡Fantástico! ¿Qué te gusta hacer cuando estás bien?",
-      "🌟 ¡Me encanta verte feliz! ¿Algo que quieras explorar?"
-    ];
-    return goodResponses[Math.floor(Math.random() * goodResponses.length)];
-  }
-
-  if (lowerMsg.includes('me encanta') || lowerMsg.includes('me gusta') || lowerMsg.includes('es hermoso')) {
-    const loveResponses = [
-      "😍 ¡A mí también! ¿Qué es lo que más te gusta?",
-      "💕 ¡Me alegra que te guste! ¿Quieres contarme más?",
-      "✨ ¡Perfecto! ¿Algo que te gustaría hacer al respecto?",
-      "💖 ¡Me encanta verte emocionado! ¿Qué sigue?",
-      "🌟 ¡Es hermoso! ¿Quieres que exploremos más?",
-      "🎉 ¡Me alegra que lo disfrutes! ¿Algo más?",
-      "🌈 ¡Increíble! ¿Hay algo más que te guste?",
-      "🎁 ¡Qué bueno! ¿Quieres compartirlo con alguien?",
-      "💫 ¡Me alegra que te guste! ¿Algo que quieras mejorar?",
-      "✨ ¡Es maravilloso! ¿Quieres contarme por qué?"
-    ];
-    return loveResponses[Math.floor(Math.random() * loveResponses.length)];
-  }
-
-  if (lowerMsg.includes('wow') || lowerMsg.includes('impresionante') || lowerMsg.includes('increíble')) {
-    const amazedResponses = [
-      "🤩 ¡Wow! Me alegra impresionarte. ¿Qué más puedo hacer?",
-      "🎉 ¡Increíble! ¿Quieres seguir explorando?",
-      "✨ ¡Me alegra que te impresione! ¿Algo más?",
-      "🌟 ¡Impresionante! ¿Qué te gustaría ver después?",
-      "💫 ¡Increíble! ¿Quieres que hagamos algo más?",
-      "🌈 ¡Wow! ¿Qué te gustaría intentar ahora?",
-      "🎁 ¡Fantástico! ¿Algo más que te gustaría ver?",
-      "🚀 ¡Increíble! ¿Quieres seguir explorando ideas?",
-      "💝 ¡Me alegra que te guste! ¿Algo que quieras probar?",
-      "✨ ¡Wow! ¿Quieres que hagamos algo más return amazedResponses[Math.floor(Math.random() * amazedResponses.length)];
-  }
-
-  if (lowerMsg.includes('gracias') || lowerMsg.includes('thank')) {
-    const thanks = [
-      "🙏 De nada. Siempre listo para ayudarte. ¿Qué sigue? 😊",
-      "💝 ¡Gracias a ti por confiar en mí! ¿Algo más?",
-      "🌟 ¡Me alegra poder ayudarte! ¿Qué más necesitas?",
-      "🤗 ¡Siempre aquí para tí! ¿Algo más?",
-      "🎉 ¡Gracias a ti! ¿Qué quieres hacer ahora?",
-      "💖 ¡Gracias por tu confianza! ¿Algo más?",
-      "✨ ¡Me alegra poder ayudarte! ¿Algo nuevo?",
-      "🌈 ¡Gracias! ¿Algo que quieras explorar?",
-      "🎁 ¡Gracias a ti! ¿Qué te gustaría hacer?",
-      "🚀 ¡Siempre aquí! ¿Algo más que necesites?"
-    ];
-    return thanks[Math.floor(Math.random() * thanks.length)];
-  }
-
-Msg.includes('claro') || lowerMsg.includes('sí') || lowerMsg.includes('por supuesto')) {
-    const yesResponses = [
-      "👍 ¡Genial! ¿Por dónde empezamos?",
-      "✅ ¡Perfecto! ¿Qué quieres hacer ahora?",
-      "✨ ¡Claro! ¿Qué necesitas?",
-      "🌟 ¡Sí! ¿Cómo puedo ayudarte?",
-      "🚀 ¡Claro! ¿Qué quieres explorar?",
-      "🌈 ¡Sí! ¿Qué te gustaría hacer?",
-      "🎯 ¡Perfecto! ¿Qué sigue?",
-      "💡 ¡Sí! ¿Qué tienes en mente?",
-      "🎉 ¡Claro que sí! ¿Qué quieres hacer?",
-      "✨ ¡Por supuesto! ¿Cómo puedo ayudarte?"
-    ];
-    return yesResponses[Math.floor(Math.random() * yesResponses.length)];
-  }
-
-  if (lowerMsg.includes('te ayudo') || lowerMsg.includes('puedo ayudarte')) {
-    const helpYou = [
-      "🤝 ¡Gracias! ¿En qué necesitas ayuda?",
-      "🌟 ¡Me encantaría! ¿Qué quieres hacer?",
-      "💖 ¡Me alegra que quieras ayudarme! ¿Cómo?",
-      "✨ ¡Eres genial! ¿Qué quieres probar?",
-      "🎉 ¡Gracias por ofrecerte! ¿Qué necesitas?",
-      "🌈 ¡Eres increíble! ¿Cómo puedo colaborar?",
-      "🚀 ¡Perfecto! ¿Qué quieres hacer juntos?",
-      "🎯 ¡Me alegra tu apoyo! ¿Algo en mente?",
-      "💡 ¡Gracias! ¿Qué te gustaría explorar?",
-      "💝 ¡Eres genial! ¿Cómo puedo ayudarte?"
-    ];
-    return helpYou[Math.floor(Math.random() * helpYou.length)];
-  }
-
-  if (lowerMsg.includes('me encanta') || lowerMsg.includes('me gusta mucho')) {
-    const loveMore = [
-      "😍 ¡A mí también! ¿Qué te gusta tanto?",
-      "💖 ¡Me alegra que te guste! ¿Quieres contarme más?",
-      "✨ ¡Perfecto! ¿Algo que te gustaría mejorar?",
-      "🌟 ¡Me alegra verte feliz! ¿Algo más?",
-      "🎉 ¡Increíble! ¿Quieres compartirlo?",
-      "🌈 ¡Fantástico! ¿Qué te gusta hacer con eso?",
-      "🎁 ¡Me alegra que te guste! ¿Algo nuevo?",
-      "🚀 ¡Me encanta verte emocionado! ¿Qué sigue?",
-      "💝 ¡Perfecto! ¿Algo que quieras hacer al respecto?",
-      "✨ ¡Me alegra que te guste! ¿Quieres explorar más?"
-    ];
-    return loveMore[Math.floor(Math.random() * loveMore.length)];
-  }
-
-  if (lowerMsg.includes('estoy feliz') || lowerMsg.includes('feliz')) {
-    const happy = [
-      "😊 ¡Qué bueno! La alegría es contagiosa 🌈 ¿Qué te tiene tan contento?",
-      "🎉 ¡Me alegra que estés feliz! ¿Algo especial?",
-      "✨ ¡Qué bien! ¿Quieres contarme más?",
-      "🌟 ¡Felicidades! ¿Qué celebras?",
-      "🌈 ¡Me alegra verte feliz! ¿Qué te gustaría hacer ahora?",
-      "🎁 ¡Perfecto! ¿Algo que quieras celebrar?",
-      "💝 ¡Me alegra que estés bien! ¿Algo más?",
-      "🚀 ¡Qué bien! ¿Algo que quieras hacer?",
-      "🎯 ¡Fantástico! ¿Qué te gusta hacer cuando estás feliz?",
-      "✨ ¡Me alegra verte así! ¿Algo que quieras explorar?"
-    ];
-    return happy[Math.floor(Math.random() * happy.length)];
-  }
-
-  // Despedidas
-  if (lowerMsg.includes('adiós') || lowerMsg.includes('chao') || lowerMsg.includes('hasta luego')) {
-    return "👋 ¡Cuídate! Vuelve cuando quieras charlar. ¡Estoy aquí! 💫";
-  }
-
-  if (lowerMsg.includes('nos vemos')) {
-    return "👋 ¡Hasta pronto! Que tengas un buen rato 😄";
-  }
-
-  // Chistes
-  if (lowerMsg.includes('chiste') || lowerMsg.includes('broma')) {
-    const jokes = [
-      "😄 ¿Sabes qué le dice un 0 al 8? ¡Cinturón! 🪢",
-      "😂 ¿Qué hace una abeja en el gimnasio? ¡Zum-ba! 🐝",
-      "🤣 ¿Qué le dijo un techo a otro? ¡Encantado de conocerte! 🏠",
-      "😅 ¿Qué le dice un pingüino a su madre? ¡Te amo, mamá pingüí! 🐧",
-      "😆 ¿Cuál es el colmo de un astronauta? ¡Irse al espacio y no poder salir! 🚀",
-      "😉 ¿Por qué los programadores prefieren la oscuridad? Porque hay menos bugs en la noche. 🌙",
-      "🤯 ¿Qué le dice un bit a otro? ¡Tú eres 1, yo soy 0… ¡juntos somos 10! 💻",
-      "🤪 ¿Sabes qué le dice una uva verde a una morada? ¡No te metas! 🍇",
-      "😜 ¿Qué le dice una pared a otra? ¡Nos vemos en la esquina! 🧱",
-      "😝 ¿Qué le dice un semáforo a otro? ¡No me mires, que me estoy cambiando! 🚦"
-    ];
-    return jokes[Math.floor(Math.random() * jokes.length)];
   }
 
   // Default amable
