@@ -7,11 +7,17 @@ function addMessageToChat(text, sender) {
   div.textContent = text;
   container.appendChild(div);
 
-  // ✅ Scroll suave al final — pero solo si el usuario está en el fondo
-  const isAtBottom = container.scrollHeight - container.clientHeight - container.scrollTop < 50;
-  if (isAtBottom) {
+  // ✅ Scroll automático mejorado - funciona en móviles
+  // Usamos requestAnimationFrame para asegurar que el DOM se actualice primero
+  requestAnimationFrame(() => {
+    // Scroll directo al final
     container.scrollTop = container.scrollHeight;
-  }
+    
+    // Scroll adicional con scrollIntoView como respaldo
+    setTimeout(() => {
+      div.scrollIntoView({ behavior: 'smooth', block: 'end' });
+    }, 100);
+  });
 }
 
 // Opcional: funciones para mostrar/ocultar "Pensando..."
